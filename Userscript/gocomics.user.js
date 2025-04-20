@@ -4,7 +4,7 @@
 // @icon        https://github.com/Idiot-01/Gocomics-Depaywall/raw/master/Extension/icons/icon48.png
 // @match       *://*.gocomics.com/*
 // @grant       none
-// @version     1.1
+// @version     2.0
 // @author      Idiot01
 // @compatible  chrome
 // @compatible  firefox
@@ -13,25 +13,30 @@
 // @compatible  edge
 // @downloadURL https://github.com/Idiot-01/Gocomics-Depaywall/raw/master/Userscript/gocomics.user.js
 // @updateURL   https://github.com/Idiot-01/Gocomics-Depaywall/raw/master/Userscript/gocomics.user.js
-// @run-at      document-start
+// @run-at      document-end
 // ==/UserScript==
 
-// Set overflow to auto to allow scroll
-(function() {
-    'use strict';
-    const style = document.createElement('style');
-    style.innerHTML = `
-      html, body {
+// Note: any JS manipulation seems to be detected by website scripts, revert to pure CSS style injection
+(function () {
+  'use strict';
+
+  // Hide ad elements, set overflow:auto to allow scroll
+  const css = `
+    div[class*="AdDisplay"],
+    div[class*="HeaderAd"],
+    div[class*="RollUpUpsell"],
+    div[class*="UpsellSectionBreak"],
+    div[data-paywall] {
+        display: none !important;
+    }
+    html, body {
         overflow: auto !important;
-      }
-    `;
-    document.head.appendChild(style);
-  })();
-  
-  // gets ad and softpaywall <div> elements and hides them
-  const observer = new MutationObserver(() => {
-      document.querySelectorAll('div[class*="AdDisplay"], div[class*="HeaderAd"], div[class*="Upsell"]').forEach(el => el.style.display = "none");
-  });
-  observer.observe(document.body, {childList: true, subtree: true});
-  
-  // chat ads hidden within closed shadow root, can't remove
+    }
+  `;
+
+  const style = document.createElement('style');
+  style.textContent = css;
+  document.head.appendChild(style);
+})();
+
+// chat ads hidden within closed shadow root, can't remove
