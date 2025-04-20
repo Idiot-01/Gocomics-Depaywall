@@ -9,7 +9,7 @@ Then go to the [userscript raw page](https://github.com/Idiot-01/Gocomics-Depayw
 
 # UblockOrigin Custom Filters
 
-```css
+```
 ! Gocomics Ad Spaces
 gocomics.com##div[class*="AdDisplay"]
 gocomics.com##div[class*="HeaderAd"]
