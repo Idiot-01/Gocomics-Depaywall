@@ -4,6 +4,8 @@ Just a simple userscript to bypass the soft paywall on gocomics.com, and removes
 
 # Usage
 
+If you have access to uBlockOrigin on your browser, it's strongly recommended to use that method. I made the userscript mainly for devices on iOS that don't have access to free element blockers but have free userscript managers.
+
 ## Userscript
 
 Install any userscript manager, such as [Userscripts](https://apps.apple.com/app/userscripts/id1463298887) for iOS / [Violentmonkey](https://addons.mozilla.org/firefox/addon/violentmonkey/) for Firefox / [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) for Chrome.
