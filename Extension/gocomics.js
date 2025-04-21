@@ -1,19 +1,24 @@
-// Set overflow to auto to allow scroll
+// Note: any JS manipulation seems to be detected by website scripts, revert to pure CSS style injection
 (function () {
-    'use strict';
-    const style = document.createElement('style');
-    style.innerHTML = `
-      html, body {
-        overflow: auto !important;
-      }
-    `;
-    document.head.appendChild(style);
-})();
+  'use strict';
 
-// gets ad and softpaywall <div> elements and hides them
-const observer = new MutationObserver(() => {
-    document.querySelectorAll('div[class*="AdDisplay"], div[class*="HeaderAd"], div[class*="Upsell"]').forEach(el => el.style.display = "none");
-});
-observer.observe(document.body, { childList: true, subtree: true });
+  // Hide ad elements, set overflow:auto to allow scroll
+  const css = `
+    div[class*="AdDisplay"],
+    div[class*="HeaderAd"],
+    div[class*="RollUpUpsell"],
+    div[class*="UpsellSectionBreak"],
+    div[data-paywall] {
+        display: none !important;
+    }
+    html, body {
+        overflow: auto !important;
+    }
+  `;
+
+  const style = document.createElement('style');
+  style.textContent = css;
+  document.head.appendChild(style);
+})();
 
 // chat ads hidden within closed shadow root, can't remove
