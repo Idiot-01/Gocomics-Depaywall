@@ -6,7 +6,7 @@
     "description": "Bypasses the Gocomics paywall and removes ads.",
   
     "icons": {
-      "48": "icons/icon48.png"
+      "48": "icons/border-48.png"
     },
   
     "content_scripts": [
