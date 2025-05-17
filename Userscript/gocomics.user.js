@@ -4,7 +4,7 @@
 // @icon        https://github.com/Idiot-01/Gocomics-Depaywall/raw/master/Extension/icons/icon48.png
 // @match       *://*.gocomics.com/*
 // @grant       none
-// @version     2.0
+// @version     2.1
 // @author      Idiot01
 // @compatible  chrome
 // @compatible  firefox
