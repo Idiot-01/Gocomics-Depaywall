@@ -24,7 +24,6 @@
   const css = `
     div[class*="AdDisplay"],
     div[class*="HeaderAd"],
-    div[class*="RollUpUpsell"],
     div[class*="UpsellSectionBreak"],
     div[data-paywall] {
         display: none !important;
@@ -33,6 +32,7 @@
         overflow: auto !important;
     }
   `;
+  // now comic class name: div[class*="RollUpUpsell"]
 
   const style = document.createElement('style');
   style.textContent = css;
